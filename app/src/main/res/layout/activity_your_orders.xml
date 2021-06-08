@@ -7,8 +7,7 @@
     android:layout_marginLeft="5dp"
     android:backgroundTint="#ffc13b"
     >
-<include layout="@layout/toolbar"
-    android:id="@+id/tbar"/>
+<include layout="@layout/toolbar" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
