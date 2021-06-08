@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="0dp"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@drawable/box"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon"
+        android:id="@+id/oimg"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Item"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/oimg"
+        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:textStyle="bold"
+        android:paddingLeft="5dp"
+        android:id="@+id/itemname"/>
+
+    <TextView
+        android:id="@+id/itemqty"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/itemname"
+        android:fontFamily="@font/amaranth"
+        android:gravity="center"
+        android:text="Qty"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="price"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/itemqty"
+        android:id="@+id/itemprice"/>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

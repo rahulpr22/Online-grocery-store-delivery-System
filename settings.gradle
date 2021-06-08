@@ -1,0 +1,2 @@
+rootProject.name = "Online Glossary"
+include ':app'

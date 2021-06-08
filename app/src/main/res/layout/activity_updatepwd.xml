@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/box"
+    android:backgroundTint="#ffb001"
+    android:layout_height="match_parent"
+    tools:context=".updatepwd">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/plogo"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_updatepwd_round"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/plogo"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/txt1"
+            android:text="Update Password"
+            android:textStyle="bold"
+            android:fontFamily="@font/amita"
+            android:textColor="@color/black"/>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:paddingBottom="0dp"
+            android:layout_below="@+id/txt1"
+            android:id="@+id/bar9"
+            android:background="@color/black"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/second"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/box"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bar9"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cpwd1"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:startIconDrawable="@drawable/pwd"
+                app:startIconTint="@color/black"
+                app:passwordToggleEnabled = "true"
+                app:passwordToggleTint="@color/black"
+                app:passwordToggleDrawable="@drawable/ic_beye"
+                android:hint="Current Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:drawablePadding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/npwd"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/cpwd1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:startIconDrawable="@drawable/pwd"
+                app:startIconTint="@color/black"
+                app:passwordToggleEnabled = "true"
+                app:passwordToggleTint="@color/black"
+                app:passwordToggleDrawable="@drawable/ic_beye"
+                android:hint="New Password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:inputType="textPassword"
+                    android:drawablePadding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:clickable="true"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@+id/npwd"
+                android:background="@drawable/text_bg"
+                android:paddingEnd="10dp"
+                android:id="@+id/updatePwd"
+                android:paddingStart="10dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/amita"
+                android:text="Update Password"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

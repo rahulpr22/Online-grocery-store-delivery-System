@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#ffc13b"
+    android:background="@drawable/box"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    tools:context=".confirmorder">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/box"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rlv1"
+        >
+        <ImageView
+            android:layout_width="500dp"
+            android:layout_height="300dp"
+            android:src="@drawable/ordercfrm"
+            android:backgroundTint="#ffc13b"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="Order Confirmed !!"
+        android:fontFamily="@font/amita"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/orderdef"
+        android:layout_below="@+id/rlv1"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rlv3"
+        android:background="@drawable/box"
+        android:backgroundTint="#ffc13b"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/orderdef">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/rlv2"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="order Id"
+                android:id="@+id/oid"
+                android:fontFamily="@font/amita"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Order"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/amaranth"
+                android:id="@+id/vorder"
+                android:layout_below="@id/oid"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/black"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@+id/rlv2">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_rcpt"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Thank you for shopping with us !!"
+        android:layout_below="@id/rlv3"
+        android:id="@+id/temp"
+        android:fontFamily="@font/amita"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/o2home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/black"
+        android:drawableRight="@drawable/homedrawable"
+        android:drawablePadding="2dip"
+        android:text="Back to home  " />
+</RelativeLayout>

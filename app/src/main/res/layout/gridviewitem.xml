@@ -1,0 +1,72 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="41dp"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true">
+
+    <ImageView
+        android:id="@+id/prod_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/box"
+        android:src="@drawable/recpt" />
+
+    <TextView
+        android:id="@+id/prod_title"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amaranth"
+        android:paddingLeft="5dp"
+        android:gravity="center|left"
+        android:layout_toRightOf="@+id/prod_image"
+        android:text="Title"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/prod_price"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/prod_title"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@id/prod_image"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/amaranth"
+        android:gravity="left|center"
+        android:paddingLeft="5dp"
+        android:text="Price"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/viewbtn"
+        android:backgroundTint="@color/black"
+        android:layout_below="@+id/prod_title"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/prod_price"
+        android:background="@drawable/text_bg"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:fontFamily="@font/amita"
+        android:text="View"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>

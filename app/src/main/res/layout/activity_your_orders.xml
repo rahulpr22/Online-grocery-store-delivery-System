@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:backgroundTint="#ffc13b"
+    >
+<include layout="@layout/toolbar"
+    android:id="@+id/tbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffc13b"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:text="Your orders"
+            android:id="@+id/orderhed"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/amaranth"
+            android:textAlignment="center"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginTop="5dp"
+            android:paddingTop="5dp"
+            android:textSize="24sp"
+            android:gravity="center_horizontal" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listvieworders"
+            android:layout_below="@+id/orderhed"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scrollbars="vertical"
+            android:divider="#ffc13b"
+            android:dividerHeight="10.0sp"/>
+
+    </RelativeLayout>
+</FrameLayout>

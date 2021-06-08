@@ -1,0 +1,52 @@
+<androidx.appcompat.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    android:background="#ffc13b">
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:text="Online Grocery"
+            android:fontFamily="@font/amaranth"
+            android:textColor="@color/black"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_height="60dp"
+            android:id="@+id/profileLogo"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_picon_round"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/carticon"
+            android:layout_width="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_height="60dp"
+            android:layout_toLeftOf="@id/profileLogo"
+            android:backgroundTint="#ffc13b"
+            android:clickable="true"
+            android:src="@drawable/fastcart" />
+
+
+
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

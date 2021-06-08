@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/box"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:backgroundTint="#ffb001"
+    android:layout_marginBottom="10dp"
+    tools:context=".userProfile">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/first"
+            android:background="@drawable/text_bg"
+            android:backgroundTint="@color/black"
+            android:padding="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/user"
+                 />
+
+            <TextView
+                android:id="@+id/fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/profileImage"
+                android:fontFamily="@font/amita"
+                android:includeFontPadding="true"
+                android:text="Raj"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/email1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/profileImage"
+                android:fontFamily="@font/amaranth"
+                android:includeFontPadding="true"
+                android:text="prb@gmail.com"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email1"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/profileImage"
+                android:fontFamily="@font/amita"
+                android:includeFontPadding="true"
+                android:text="9878654567"
+                android:id="@+id/phone1"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:clickable="true"
+            android:drawableLeft="@drawable/readytopickup"
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="60dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:id="@+id/viewOrders"
+            android:layout_below="@+id/first"
+            android:background="@drawable/text_bg"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/amaranth"
+            android:text="  Your Orders"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:gravity="left|center" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/txt10"
+            android:layout_below="@+id/viewOrders"
+            android:text="Update Details"
+            android:textStyle="bold"
+            android:fontFamily="@font/amita"
+            android:textColor="@color/black"/>
+        <View android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:paddingBottom="0dp"
+            android:layout_below="@+id/txt10"
+            android:id="@+id/bar10"
+            android:background="@color/black"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/second"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/box"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bar10">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/updatename"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Full Name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableTint="@color/black"
+                    android:drawableLeft="@drawable/user"
+                    android:drawablePadding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/updatephone"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/updatename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Phone">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableTint="@color/black"
+                    android:drawableLeft="@drawable/phone"
+                    android:drawablePadding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:clickable="true"
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp"
+                android:id="@+id/updateDetails"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@+id/updatephone"
+                android:background="@drawable/text_bg"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/amaranth"
+                android:text="Update Details"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="40dp"
+            android:gravity="left|center"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:layout_marginTop="25dp"
+            android:id="@+id/upwd"
+            android:layout_below="@+id/second"
+            android:drawableLeft="@drawable/pwd"
+            android:drawableTint="@color/white"
+            android:background="@drawable/text_bg"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/amaranth"
+            android:text="    Update Password"
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+           />
+
+        <TextView
+            android:id="@+id/backtohome"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/upwd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/text_bg"
+            android:backgroundTint="@color/black"
+            android:clickable="true"
+            android:drawableLeft="@drawable/ic_home"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/amaranth"
+            android:gravity="left|center"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="3dp"
+            android:text="    Back to Home"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+</ScrollView>
+
+</RelativeLayout>

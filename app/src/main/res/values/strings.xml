@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Online Grocery</string>
+    <string name="banner">banner</string>
+    <string name="deladdr"><b><u>Delivery Address</u></b></string>
+    <string name="forgotpwd"><u>Forgot Password ?</u></string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

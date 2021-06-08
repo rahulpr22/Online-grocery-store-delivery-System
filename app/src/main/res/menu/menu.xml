@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/readytopickup"
+            android:title="Your Orders" />
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/profileicon"
+            android:title="Your Profile"
+            />
+        <item
+            android:id="@+id/signout"
+            android:icon="@drawable/signout"
+            android:title="Sign out"
+            />
+
+    </group>
+</menu>
