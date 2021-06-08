@@ -66,14 +66,22 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-        signup.setOnClickListener(new View.OnClickListener() {
+        forgotpwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(MainActivity.this,Registration.class);
-                startActivity(i);
-                finish();
+                FirebaseAuth.getInstance().sendPasswordResetEmail(userName.getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("email", "Email sent.");
+                                    Toast.makeText(MainActivity.this,"Password Reset Email Sent",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
             }
         });
+
 
     }
     private void userLogin(){
@@ -95,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                            FirebaseDatabase.getInstance().getReference().child("users/"+email.replace(".",",")).child("pwd").setValue(password);
                             Intent intent = new Intent(MainActivity.this, Dashboard.class);
                             intent.putExtra("userid",email);
                             intent.putExtra("pwd",password);
