@@ -26,14 +26,17 @@ Application Functionalities
 4. user can cancel orders
 
 5. user can update profile
+
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/profile%20page.PNG?raw=true "Profile Page")
 
 6. user can track delivery status of order
+
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/ordertrack%20(or)%20orderstatus%20page.PNG?raw=true "Order Track")
 
 7. user can reset or update password
 8. Admin user can add user
 9. Admin user can add products
+
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/ordertrack%20(or)%20orderstatus%20page.PNG?raw=true "CAdd product")
 
 10. Admin user can monitor or update order delivery status
