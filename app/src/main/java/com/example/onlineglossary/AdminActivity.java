@@ -44,5 +44,12 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        adduser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),Registration.class);
+                startActivity(i);
+            }
+        });
     }
 }

@@ -81,10 +81,10 @@ public class Registration extends AppCompatActivity {
                         if(task.isSuccessful()){
                             reference = FirebaseDatabase.getInstance().getReference();
                             reference.child("users/"+uemail.replace(".",",")).setValue(helper);
+                            Toast.makeText(Registration.this,"Registration Successful !!",Toast.LENGTH_LONG).show();
                             Log.d("register","reached");
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
-                            Toast.makeText(Registration.this,"Registration Successful !!",Toast.LENGTH_LONG).show();
                         }else{
                             //display some message here
                             Toast.makeText(Registration.this,"Registration Error",Toast.LENGTH_LONG).show();
