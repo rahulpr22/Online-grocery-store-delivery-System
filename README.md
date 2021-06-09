@@ -1,7 +1,9 @@
 # Online-grocery-store-delivery-System
 
 This is an Android application designed for Online Grocery Shopping and Delivery Management system.
-Firebase database is used as part of the application.
+
+Firebase database is used as part of the application. The structure of product node is as follows
+
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/productData%20firebase.PNG?raw=true "Optional Title")
 
 
@@ -9,7 +11,10 @@ Firebase database is used as part of the application.
 Application Functionalities
 -------------------------------------
 
-1. user registration
+1. user registration 
+
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/productData%20firebase.PNG?raw=true "Optional Title")
+
 2. forgot password via sending reset link to registered email
 3. user can add and remove products from cart
 4. user can cancel orders
