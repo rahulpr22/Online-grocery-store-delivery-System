@@ -48,6 +48,7 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getApplicationContext(),Registration.class);
+                i.putExtra("from admin",true);
                 startActivity(i);
             }
         });

@@ -25,7 +25,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class Registration extends AppCompatActivity {
 
-    TextView signup;
+    TextView signup,createact,reghed;
     EditText name,phone,email,pwd;
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
@@ -35,9 +35,17 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         signup = findViewById(R.id.signuprbtn);
         name = findViewById(R.id.uname);
+        createact = findViewById(R.id.createacnt);
+        reghed = findViewById(R.id.reghed);
         phone = findViewById(R.id.phone);
         email=findViewById(R.id.email);
         pwd=findViewById(R.id.pwd);
+        if(getIntent().getBooleanExtra("from admin",false))
+        {
+            reghed.setText("Add Account");
+            createact.setVisibility(View.GONE);
+            signup.setText("Add");
+        }
         reference = FirebaseDatabase.getInstance().getReference();
         mAuth =FirebaseAuth.getInstance();
 

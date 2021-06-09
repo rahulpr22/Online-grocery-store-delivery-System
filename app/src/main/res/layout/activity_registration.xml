@@ -34,6 +34,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:fontFamily="@font/amita"
+            android:id="@+id/reghed"
             android:text="Register here !!"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -49,6 +50,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:fontFamily="@font/amaranth"
+            android:id="@+id/createacnt"
             android:text="Create your account "
             android:textColor="@color/black"
             android:textSize="16sp" />
