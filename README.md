@@ -2,7 +2,7 @@
 
 This is an Android application designed for Online Grocery Shopping and Delivery Management system.
 Firebase database is used as part of the application.
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/productData%20firebase.PNG?raw=true "Optional Title")
 
 
 
