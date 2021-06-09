@@ -13,7 +13,6 @@ Application Functionalities
 
 1. user registration 
 
-![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/productData%20firebase.PNG?raw=true "User Registration page")
 
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/loginpage.PNG?raw=true "Login page")
 
