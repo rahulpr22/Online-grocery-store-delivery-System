@@ -43,7 +43,7 @@ Dashboard or home screen
 8. Admin user can add user
 9. Admin user can add products
 
-![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/ordertrack%20(or)%20orderstatus%20page.PNG?raw=true "CAdd product")
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/Adminaddproductexample.PNG?raw=true "Add product")
 
 10. Admin user can monitor or update order delivery status
 
