@@ -37,5 +37,12 @@ public class AdminActivity extends AppCompatActivity {
                 finish();
             }
         });
+        addprod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),AdminAddProduct.class);
+                startActivity(i);
+            }
+        });
     }
 }

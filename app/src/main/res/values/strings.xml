@@ -5,6 +5,7 @@
     <string name="forgotpwd"><u>Forgot Password ?</u></string>
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+    <string name="category">Category Id\n 1.Fruits and Vegetables\n 2.Meat\n 3.Packed food, Snacks, drinks\n 4.Household items\n 5.Dairy products</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>
