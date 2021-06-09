@@ -17,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -42,6 +45,18 @@ public class cartAdapter extends ArrayAdapter<cartHelper> {
         TextView price = listitemView.findViewById(R.id.cart_prprice);
         TextView qty = listitemView.findViewById(R.id.cart_prcount);
         ImageView logo = listitemView.findViewById(R.id.image_cartlist);
+        ImageView delete = listitemView.findViewById(R.id.deletecartitem);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                String usid= FirebaseAuth.getInstance().getCurrentUser().getEmail().replace(".",",");
+                mDatabase.child("cart").child(usid).child(String.valueOf(c.getPid())).removeValue();
+                Intent i= new Intent(getContext(),cart.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mcontext.startActivity(i);
+            }
+        });
         title.setText(c.getItem());
         price.setText(c.getPrice());
         qty.setText("Qty : "+c.getQuantity());

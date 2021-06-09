@@ -5,21 +5,20 @@
     android:layout_marginTop="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
-    android:backgroundTint="#ffb001"
+    android:backgroundTint="#ffc13b"
     >
-<include layout="@layout/toolbar" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffb001"
+        android:background="#ffc13b"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"
-            android:text="Your orders"
-            android:id="@+id/orderhed"
+            android:text="Orders"
+            android:id="@+id/adminorderhed"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:fontFamily="@font/amaranth"
@@ -33,33 +32,14 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listvieworders"
-            android:layout_below="@+id/orderhed"
+            android:id="@+id/adminlistvieworders"
+            android:layout_below="@+id/adminorderhed"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:scrollbars="vertical"
-            android:divider="#ffb001"
+            android:divider="#ffc13b"
             android:dividerHeight="10.0sp"/>
-        <ImageView
-            android:backgroundTint="@color/black"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:id="@+id/noorders"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/noorders"
-          />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sorry, You haven't ordered anything yet !!"
-            android:textColor="@color/black"
-            android:fontFamily="@font/amita"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/noorders"
-            android:id="@+id/sorrymsg"/>
-
 
     </RelativeLayout>
 </FrameLayout>

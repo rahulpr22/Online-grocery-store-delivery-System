@@ -6,9 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +29,8 @@ import java.util.List;
 public class cart extends AppCompatActivity {
     private DatabaseReference dbref;
     private int cartvalue=0;
-    TextView cartcost;
+    TextView cartcost,sorrymsg;
+    ImageView emptycart;
     ImageButton btn;
     ListView lv;
     Button checkout;
@@ -41,7 +44,10 @@ public class cart extends AppCompatActivity {
         btn=findViewById(R.id.backhome);
         cartcost = findViewById(R.id.totalprice);
         checkout =findViewById(R.id.checkout);
-
+        emptycart=findViewById(R.id.emptycart);
+        sorrymsg=findViewById(R.id.cartsorrymsg);
+        checkout.setVisibility(View.GONE);
+        cartcost.setVisibility(View.GONE);
         Intent prime=new Intent(cart.this,deliverydetails.class);
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
@@ -65,33 +71,35 @@ public class cart extends AppCompatActivity {
                     Log.d("cartValue", String.valueOf(cartvalue));
                     list.add(p);
                     s+=p.getPid()+"@";
-
-                   String temp="";
-                    /*try {
-                        obj.put("item",p.getItem());
-                        obj.put("logo",p.getLogo());
-                        obj.put("id",i);
-                        obj.put("qty","QTY : "+p.getQuantity());
-                        obj.put("price",p.getPrice());
-                        order.put(obj);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }*/
+                    String temp="";
                     temp+=p.getItem()+" "+p.getLogo()+" "+i+" "+p.getQuantity()+" "+p.getPrice();
                     Log.d("Spaces", String.valueOf(temp.split(" ").length));
                     str.add(temp);
                 }
+                emptycart.setVisibility(View.GONE);
+                sorrymsg.setVisibility(View.GONE);
+                if(list.size()==0)
+                {
+                    emptycart.setVisibility(View.VISIBLE);
+                    sorrymsg.setVisibility(View.VISIBLE);
+                }
                 Log.d("cartarray", String.valueOf(list.size())); //To see is not emplty
 
                 String[] test= str.toArray(new String[0]);
-                Log.d("jarray", String.valueOf(test.length)); //To see is not emplty
+                Log.d("cartlength", String.valueOf(test.length)); //To see is not emplty
+
+
+
 
                 lv = findViewById(R.id.listviewcart);
                 cartAdapter myAdapter=new cartAdapter(getApplicationContext(), (ArrayList<cartHelper>) list);
                 lv.setAdapter((ListAdapter) myAdapter);
                 TrackingActivity.setListViewHeightBasedOnChildren(lv);
+                checkout.setVisibility(View.VISIBLE);
+                cartcost.setVisibility(View.VISIBLE);
                 cartcost.setText("Total Price : ₹"+String.valueOf(cartvalue)+".00");
                 prime.putExtra("test",test);
+                prime.putExtra("size",String.valueOf(list.size()));
                 if(!s.isEmpty())
                     prime.putExtra("pid",s.substring(0,s.length()-1));
                 else
@@ -117,11 +125,17 @@ public class cart extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(prime.getStringExtra("size").equals("0"))
+                {
+                    Toast.makeText(getApplicationContext(), "Your Cart is empty!!", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    prime.putExtra("bill",cartcost.getText().toString().split(":")[1]);
+                    prime.putExtra("uid",uid);
+                    startActivity(prime);
+                    finish();
+                }
 
-                prime.putExtra("bill",cartcost.getText().toString().split(":")[1]);
-                prime.putExtra("uid",uid);
-                startActivity(prime);
-                finish();
             }
         });
     }

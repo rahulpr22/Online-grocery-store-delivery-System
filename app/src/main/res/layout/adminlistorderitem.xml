@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:background="@drawable/box">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#020b0f "
+        >
+
+        <RelativeLayout
+            android:id="@+id/rvl1"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/box"
+                android:src="@drawable/recpt" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/rlv2"
+            android:layout_toRightOf="@+id/rvl1">
+
+            <TextView
+                android:id="@+id/admindoidhed"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center"
+                android:text="Order Id :"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/admindoid"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/admindoidhed"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center"
+                android:text="20203456121323prb12"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/adminuserid"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/admindoidhed"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center"
+                android:text="User Id"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/adminuid"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/admindoid"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/adminuserid"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center"
+                android:text="prb@gmail.com"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/adminmonitordeliery"
+            android:layout_below="@+id/rlv2"
+            android:layout_toRightOf="@+id/rvl1"
+            android:background="@drawable/text_bg"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/amita"
+            android:text="Monitor Delivery"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

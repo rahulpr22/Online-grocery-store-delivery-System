@@ -4,12 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewConfirmedOrder">
+    android:background="@drawable/box"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:backgroundTint="#ffb001"
+    tools:context=".AdminViewTracking">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/black"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="10dp"
@@ -23,9 +29,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/amita"
             android:gravity="center_horizontal"
-            android:text="Order Tracking"
+            android:text="Admin View Order Tracking"
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/white"
             android:textSize="19sp" />
     </LinearLayout>
 
@@ -38,7 +44,6 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="94dp"
-        android:layout_marginBottom="34dp"
         android:text="Order Placed"
         app:layout_constraintBottom_toTopOf="@+id/button_orderconfirmed"
         app:layout_constraintEnd_toEndOf="parent"

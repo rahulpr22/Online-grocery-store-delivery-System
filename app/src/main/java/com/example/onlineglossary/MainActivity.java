@@ -84,10 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private void userLogin(){
+    private void userLogin() {
         String email = userName.getText().toString().trim();
-        String password  = userpwd.getText().toString().trim();
-
+        String password = userpwd.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;
@@ -96,25 +95,38 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
             return;
         }
+        if (email.equalsIgnoreCase("prb029@gmail.com")) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                                FirebaseDatabase.getInstance().getReference().child("users/" + email.replace(".", ",")).child("pwd").setValue(password);
+                                Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                                intent.putExtra("userid", email);
+                                intent.putExtra("pwd", password);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                            FirebaseDatabase.getInstance().getReference().child("users/"+email.replace(".",",")).child("pwd").setValue(password);
-                            Intent intent = new Intent(MainActivity.this, Dashboard.class);
-                            intent.putExtra("userid",email);
-                            intent.putExtra("pwd",password);
-                            startActivity(intent);
-                        }
-                        else {
-                            Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
     }
-
-
 }

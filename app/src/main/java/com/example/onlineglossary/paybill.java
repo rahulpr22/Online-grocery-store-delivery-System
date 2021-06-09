@@ -109,12 +109,7 @@ JSONArray array;
 
                     String[] pid = getIntent().getStringExtra("pid").split("@");
 
-                    /*try {
-                        JSONArray array = new JSONArray( getIntent().getStringExtra("test"));
-                        test(array,getIntent().getStringExtra("bill"),uid,oid,pid);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }*/
+
                     DeliveryInfo d=new DeliveryInfo();
                     d.setCity(city);
                     d.setEmail(email);
@@ -126,7 +121,12 @@ JSONArray array;
                     d.setZip(zip);
                     d.setOid(oid);
                     d.setStatus("Pending");
+                    AdmindeliveryMonitor a= new AdmindeliveryMonitor();
+                    a.setUid(uid.replace(".",","));
+                    a.setOid(oid);
+                    a.setStatus("Pending");
                     mDatabase.child("delivery/"+usid).child(oid).setValue(d);
+                    mDatabase.child("delivery/admindata/"+oid).setValue(a);
                     Log.d("dbcheck",usid+" , "+oid);
                     String tid=dtf.format(now).toString().replace("/","").replace(":","").replace(" ","");
                     transaction t= new transaction();
@@ -190,102 +190,7 @@ JSONArray array;
         lv.setAdapter((ListAdapter) myAdapter);
         TrackingActivity.setListViewHeightBasedOnChildren(lv);
     }
-    @SuppressLint("WrongConstant")
-    /*public void test(JSONArray array,String cost,String uid,String oid,String[] pids) throws JSONException {
-        TableRow row;
-        TextView t1, t2,t3,t4;
-        TableLayout ll = (TableLayout) findViewById(R.id.orderlist);
-        //Converting to dip unit
-        int dip = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                (float) 1, getResources().getDisplayMetrics());
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        String usid= uid.replace(".",",");
 
-        for(int i=0;i<array.length()+1;i++) {
-
-            row = new TableRow(this);
-
-            t1 = new TextView(this);
-            t1.setTextColor(getResources().getColor(R.color.black));
-            t2 = new TextView(this);
-            t2.setTextColor(getResources().getColor(R.color.black));
-            t3 = new TextView(this);
-            t3.setTextColor(getResources().getColor(R.color.black));
-            t4 = new TextView(this);
-            t4.setTextColor(getResources().getColor(R.color.black));
-
-            if (i < array.length()) {
-                t1.setText(array.getJSONObject(i).getString("item"));
-                t2.setText(array.getJSONObject(i).getString("qty"));
-                t3.setText(array.getJSONObject(i).getString("price"));
-                t4.setText(array.getJSONObject(i).getString("id") + ".");
-
-                orderItem item= new orderItem();
-                item.setLogo(array.getJSONObject(i).getString("logo"));
-                item.setPrice(array.getJSONObject(i).getString("price"));
-                item.setTitle(array.getJSONObject(i).getString("item"));
-                item.setQty(array.getJSONObject(i).getString("qty"));
-                item.setPid(pids[i]);
-                mDatabase.child("orders/"+usid).child(oid).child("orderitem"+array.getJSONObject(i).getString("id")).setValue(item);
-                t1.setTypeface(null, 1);
-                t2.setTypeface(null, 1);
-                t3.setTypeface(null, 1);
-                t4.setTypeface(null, 1);
-
-                t1.setTextSize(15);
-                t2.setTextSize(15);
-                t3.setTextSize(15);
-                t4.setTextSize(15);
-
-                t4.setWidth(50 * dip);
-                t1.setWidth(100 * dip);
-                t2.setWidth(150 * dip);
-                t3.setWidth(200 * dip);
-                t4.setPadding(20 * dip, 0, 0, 0);
-                row.addView(t4);
-                row.addView(t1);
-                row.addView(t2);
-                row.addView(t3);
-
-                ll.addView(row, new TableLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                Log.d("testf", "reached");
-            }
-            else
-            {
-                t4.setText("");
-                t2.setText("-");
-                t3.setText(cost);
-                t1.setText("Total :");
-
-
-                t1.setTypeface(null, 1);
-                t2.setTypeface(null, 1);
-                t3.setTypeface(null, 1);
-                t4.setTypeface(null, 1);
-
-                t1.setTextSize(15);
-                t2.setTextSize(15);
-                t3.setTextSize(15);
-                t4.setTextSize(15);
-
-                t4.setWidth(50 * dip);
-                t1.setWidth(100 * dip);
-                t2.setWidth(150 * dip);
-                t3.setWidth(200 * dip);
-                t4.setPadding(20 * dip, 0, 0, 0);
-                row.addView(t4);
-                row.addView(t1);
-                row.addView(t2);
-                row.addView(t3);
-
-                ll.addView(row, new TableLayout.LayoutParams(
-                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                Log.d("testf", "reached");
-            }
-        }
-    }*/
-    @Override
     public void onBackPressed(){
         paybill.super.onBackPressed();
     }

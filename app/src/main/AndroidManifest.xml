@@ -13,11 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineGlossary"
         android:windowSoftInputMode="stateVisible|adjustResize">
+        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".AdminViewListofOrders" />
         <activity android:name=".updatepwd" />
         <activity android:name=".userProfile" />
         <activity android:name=".yourOrders" />
         <activity android:name=".TrackingActivity" />
-        <activity android:name=".viewConfirmedOrder" />
+        <activity android:name=".AdminViewTracking" />
         <activity android:name=".orderSummary" />
         <activity android:name=".confirmorder" />
         <activity android:name=".deliverydetails" />

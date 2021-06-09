@@ -40,32 +40,7 @@ public class Registration extends AppCompatActivity {
         pwd=findViewById(R.id.pwd);
         reference = FirebaseDatabase.getInstance().getReference();
         mAuth =FirebaseAuth.getInstance();
-        /*if(mAuth.getCurrentUser() != null){
-            //that means user is already logged in
-            //so close this activity
-            finish();
 
-            Intent i= new Intent(getApplicationContext(), Dashboard.class);
-            i.putExtra("userid",mAuth.getCurrentUser().getEmail());
-            //and open profile activity
-            startActivity(i);
-        }
-        DBHandler db = new DBHandler(this);
-
-
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String uname= name.getText().toString();
-                String uphone= phone.getText().toString();
-                String upwd= pwd.getText().toString();
-                String uemail= email.getText().toString();
-                db.addProfile(new profile(uname,uemail,uphone,upwd));
-                Intent i = new Intent(Registration.this,MainActivity.class);
-                startActivity(i);
-                finish();
-            }
-        });*/
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

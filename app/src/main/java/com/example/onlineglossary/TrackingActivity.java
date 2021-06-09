@@ -1,5 +1,6 @@
 package com.example.onlineglossary;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,13 +21,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TrackingActivity extends AppCompatActivity {
     View view_order_placed,view_order_confirmed,view_order_processed,view_order_pickup,con_divider,ready_divider,placed_divider;
     ImageView img_orderconfirmed,orderprocessed,orderpickup;
-    TextView textorderpickup,text_confirmed,textorderprocessed,tv3,deladdr,tv4,tv8;
+    TextView textorderpickup,text_confirmed,textorderprocessed,tv3,deladdr,tv4,tv8,cancelorder;
     ImageButton b2home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +51,21 @@ public class TrackingActivity extends AppCompatActivity {
         img_orderconfirmed=findViewById(R.id.img_orderconfirmed);
         orderprocessed=findViewById(R.id.orderprocessed);
         orderpickup=findViewById(R.id.orderpickup);
+        cancelorder=findViewById(R.id.cancelorder);
         Intent intent=getIntent();
         String orderStatus="Processing";//intent.getStringExtra("orderStatus");
+
         tv3=findViewById(R.id.textView3);
         tv4=findViewById(R.id.oid);
         tv8=findViewById(R.id.textView8);
+
         String uid= FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
         String oid=getIntent().getStringExtra("oid");
+
         deladdr=findViewById(R.id.deladdr);
         Log.d("oid",getIntent().getStringExtra("oid"));
         Log.d("name",getIntent().getStringExtra("name"));
+
         tv3.setText(getIntent().getStringExtra("tv1"));
         tv4.setText("OrderId : "+oid);
         tv8.setText(getIntent().getStringExtra("name"));
@@ -94,12 +103,36 @@ public class TrackingActivity extends AppCompatActivity {
         };
         dbref.addListenerForSingleValueEvent(valueEventListener);
         dbref.removeEventListener(valueEventListener);
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference().child("delivery/"+uid.replace(".",","));
+        ValueEventListener status=new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                String orderstatus= snapshot.child(oid).child("status").getValue().toString();
+                getOrderStatus(orderstatus,oid,uid);
 
-        getOrderStatus(orderStatus);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(status);
         b2home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TrackingActivity.super.onBackPressed();
+            }
+        });
+        cancelorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
+                ref.child("delivery/"+uid.replace(".",",")).child(oid).removeValue();
+                ref.child("orders/"+uid.replace(".",",")).child(oid).removeValue();
+                Intent i= new Intent(getApplicationContext(),yourOrders.class);
+                startActivity(i);
+                finish();
             }
         });
     }
@@ -124,26 +157,41 @@ public class TrackingActivity extends AppCompatActivity {
         // params.height finally gets the height required for the complete display of the entire ListView
         listView.setLayoutParams(params);
     }
-    private void getOrderStatus(String orderStatus) {
-        if (orderStatus.equals("0")){
-            float alfa= (float) 0.5;
-            setStatus(alfa);
+    private void getOrderStatus(String orderStatus,String oid,String uid) {
+        HashMap<String,String> map=new HashMap<>();
+        map.put("Placed","0");
+        map.put("Pending","0");
+        map.put("Confirmed","1");
+        map.put("Processing","2");
+        map.put("Delivered","3");
+        orderStatus=map.get(orderStatus);
+                if (orderStatus.equals("0")){
+                    float alfa= (float) 0.5;
+                    Log.d("reachedalfa","reached");
+                    setStatus(alfa);
 
-        }else if (orderStatus.equals("1")){
-            float alfa= (float) 1;
-            setStatus1(alfa);
+                }else if (orderStatus.equals("1")){
+                    float alfa= (float) 1;
+                    setStatus1(alfa);
+                    Log.d("reachedalfa","reached");
 
 
 
-        }else if (orderStatus.equals("2")){
-            float alfa= (float) 1;
-            setStatus2(alfa);
+                }else if (orderStatus.equals("2")){
+                    float alfa= (float) 1;
+                    setStatus2(alfa);
+                    Log.d("reachedalfa","reached");
 
 
-        }else if (orderStatus.equals("3")){
-            float alfa= (float) 1;
-            setStatus3(alfa);
-        }
+                }else if (orderStatus.equals("3")){
+                    float alfa= (float) 1;
+                    setStatus3(alfa);
+                    Log.d("reachedalfa","reached");
+
+                }
+
+
+
     }
 
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,10 +31,15 @@ import java.util.List;
 public class yourOrders extends AppCompatActivity {
 
     private DatabaseReference dbRef;
+    ImageView noorders;
+    TextView sorrymsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_orders);
+        noorders=findViewById(R.id.noorders);
+        sorrymsg=findViewById(R.id.sorrymsg);
+
         String uid= FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
         if (FirebaseDatabase.getInstance() != null)
         {
@@ -54,9 +60,18 @@ public class yourOrders extends AppCompatActivity {
                     Log.d("viewOrders", d.getOid() + " , " + d.getName());
                     list.add(d);
                 }
+                noorders.setVisibility(View.GONE);
+                sorrymsg.setVisibility(View.GONE);
+                if(list.size()==0)
+                {
+                    noorders.setVisibility(View.VISIBLE);
+                    sorrymsg.setVisibility(View.VISIBLE);
+                }
+
                 ListView lv = findViewById(R.id.listvieworders);
                 deliversOrdersAdapter myAdapter = new deliversOrdersAdapter(getApplicationContext(), list, uid);
                 lv.setAdapter(myAdapter);
+                TrackingActivity.setListViewHeightBasedOnChildren(lv);
             }
 
             @Override
@@ -77,34 +92,6 @@ public class yourOrders extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-    /*@Override
-    protected void onStart() {
-        super.onStart();
-        String uid = getIntent().getStringExtra("uid");
-
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                ArrayList<DeliveryInfo> list = new ArrayList<>();
-                Log.d("yorderpage", "reached");
-                Log.d("snapshot", String.valueOf(snapshot.getChildrenCount()));
-                for (DataSnapshot ds : snapshot.getChildren()) {
-                    DeliveryInfo d = ds.getValue(DeliveryInfo.class);
-                    Log.d("viewOrders", d.getOid() + " , " + d.getName());
-                    list.add(d);
-                }
-                ListView lv = findViewById(R.id.listvieworders);
-                deliversOrdersAdapter myAdapter = new deliversOrdersAdapter(getApplicationContext(), list, uid);
-                lv.setAdapter(myAdapter);
-            }
-
-            @Override
-            public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-            }
-        };
-        dbRef.addListenerForSingleValueEvent(valueEventListener);
-    }*/
 }
 class deliversOrdersAdapter extends ArrayAdapter<DeliveryInfo> {
     private Context context;
