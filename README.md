@@ -11,7 +11,14 @@ Firebase database is used as part of the application. The structure of product n
 Application Functionalities
 -------------------------------------
 
+Dashboard or home screen
+
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/dashboard.PNG?raw=true "User Registration page")
+
+
 1. user registration 
+
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/registration%20page.PNG?raw=true "User Registration page")
 
 
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/loginpage.PNG?raw=true "Login page")
