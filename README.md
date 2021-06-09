@@ -41,7 +41,9 @@ user can track delivery status of order
 
 9. Admin user can add products
 
-![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/Adminaddproductexample.PNG?raw=true "Add product")
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/AdminAddProduct.PNG?raw=true "Add product")
+
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/Adminaddproductexample.PNG?raw=true "Add product Example")
 
 
 
