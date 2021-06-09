@@ -6,7 +6,7 @@ Firebase database is used as part of the application. The structure of product n
 
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/productData%20firebase.PNG?raw=true "Optional Title")
 
-
+Product Images are stored in firebase storage and the url of the same is stored under the product node.
 
 Application Functionalities
 -------------------------------------
