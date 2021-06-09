@@ -42,65 +42,25 @@ public class Dashboard extends AppCompatActivity {
     CircleImageView cart,profi;
     private static String userid;
     private Session session;//global variable
-
+    TextView household,snacks,dairy,fruits,meat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        cart= findViewById(R.id.carticon);
-        profi= findViewById(R.id.profileLogo);
-
-        this.userid= FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
-        Log.d("userid",userid);
+        String userid= FirebaseAuth.getInstance().getCurrentUser().getEmail();
         getusername(userid);
-        session = new Session(getApplicationContext()); //in oncreate
-        session.setusename(userid);
 
-
-
-
-
-        Log.d("reached","reached");
-        if (FirebaseDatabase.getInstance() != null)
-        {
-            FirebaseDatabase.getInstance().goOffline();
-        }
-        FirebaseDatabase.getInstance().goOnline();
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("products");
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<productgrid> list = new ArrayList<>();
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    productgrid p = ds.getValue(productgrid.class);
-                    Log.d("test","title "+p.getTitle()+" desc "+p.getDescription());
-                    list.add(p);
-                }
-                Log.d("TAG", String.valueOf(list.size())); //To see is not emplty
-                simpleList = findViewById(R.id.simpleGridView);
-                productAdapter myAdapter=new productAdapter(getApplicationContext(), (ArrayList<productgrid>) list);
-                simpleList.setAdapter(myAdapter);
-                TrackingActivity.setListViewHeightBasedOnChildren(simpleList);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        };
-       ref.addListenerForSingleValueEvent(valueEventListener);
-       ref.removeEventListener(valueEventListener);
-       session.setuname(getIntent().getStringExtra("username"));
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView nvDrawer = (NavigationView) findViewById(R.id.nvView);
         nvDrawer.setItemIconTintList(null);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         // Setup drawer view
         setupDrawerContent(nvDrawer);
         ActionBarDrawerToggle mDrawerToggle;
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
+
         if (actionBar != null)
         {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -123,12 +83,59 @@ public class Dashboard extends AppCompatActivity {
             mDrawer.setDrawerListener(mDrawerToggle);
             mDrawerToggle.syncState();
         }
+        cart= findViewById(R.id.carticon);
+        profi= findViewById(R.id.profileLogo);
+        household=findViewById(R.id.household);
+        dairy=findViewById(R.id.dairy);
+        meat=findViewById(R.id.meat);
+        snacks=findViewById(R.id.snacks);
+        fruits=findViewById(R.id.fruits);
+
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        this.userid= FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+        Log.d("userid",userid);
+
+        session = new Session(getApplicationContext()); //in oncreate
+        session.setusename(userid);
+
+        Log.d("reached","reached");
+        if (FirebaseDatabase.getInstance() != null)
+        {
+            FirebaseDatabase.getInstance().goOffline();
+        }
+        FirebaseDatabase.getInstance().goOnline();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("products");
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<productgrid> list=new ArrayList<>();
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    productgrid p = ds.getValue(productgrid.class);
+                    Log.d("test","title "+p.getTitle()+" desc "+p.getDescription());
+                    list.add(p);
+                }
+                //navscrollmenu(household,fruits,dairy,snacks,meat,householdlist,meatlist,dairylist,fruitveglist,snackslist);
+                Log.d("TAG", String.valueOf(list.size())); //To see is not emplty
+                simpleList = findViewById(R.id.simpleGridView);
+                productAdapter myAdapter=new productAdapter(getApplicationContext(), (ArrayList<productgrid>) list);
+                simpleList.setAdapter(myAdapter);
+                TrackingActivity.setListViewHeightBasedOnChildren(simpleList);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+       ref.addListenerForSingleValueEvent(valueEventListener);
+       ref.removeEventListener(valueEventListener);
+       session.setuname(getIntent().getStringExtra("username"));
+
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(Dashboard.this,cart.class);
-                i.putExtra("uid",session.getusename());
-                i.putExtra("username",session.getuname());
                 startActivity(i);
             }
         });
@@ -136,46 +143,55 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent profiledata=new Intent(Dashboard.this,userProfile.class);
-                profiledata.putExtra("uid",session.getusename());
                 profiledata.putExtra("pwd",getIntent().getStringExtra("pwd"));
                 startActivity(profiledata);
+            }
+        });
+        fruits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),productCategory.class);
+                i.putExtra("catid","1");
+                startActivity(i);
+            }
+        });
+        household.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),productCategory.class);
+                i.putExtra("catid","4");
+                startActivity(i);
+            }
+        });
+        meat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),productCategory.class);
+                i.putExtra("catid","2");
+                startActivity(i);
+            }
+        });
+        dairy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),productCategory.class);
+                i.putExtra("catid","5");
+                startActivity(i);
+            }
+        });
+        snacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),productCategory.class);
+                i.putExtra("catid","3");
+                startActivity(i);
             }
         });
 
 
 
     }
-    public void getusername(String email)
-    {
-        String[] res = {""};
-        if (FirebaseDatabase.getInstance() != null)
-        {
-            FirebaseDatabase.getInstance().goOffline();
-        }
-        FirebaseDatabase.getInstance().goOnline();
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users/"+email.replace(".",","));
-        ValueEventListener valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                res[0] = dataSnapshot.child("name").getValue().toString();
-
-                Log.d("uname",res[0]);
-                NavigationView navigationView = findViewById(R.id.nvView);
-                View hView =  navigationView.getHeaderView(0);
-                TextView nav_user = (TextView)hView.findViewById(R.id.username);
-                nav_user.setText(res[0]);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-        };
-        ref.addListenerForSingleValueEvent(valueEventListener);
-        ref.removeEventListener(valueEventListener);
-
-
-    }
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -192,18 +208,16 @@ public class Dashboard extends AppCompatActivity {
 
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                Intent i= new Intent(Dashboard.this,yourOrders.class);
-                i.putExtra("uid",session.getusename());
+                Intent i= new Intent(getApplicationContext(),yourOrders.class);
                 startActivity(i);
                 break;
             case R.id.nav_second_fragment:
-                Intent i1= new Intent(Dashboard.this,userProfile.class);
-                i1.putExtra("uid",session.getusename());
+                Intent i1= new Intent(getApplicationContext(),userProfile.class);
                 startActivity(i1);
                 break;
             case R.id.signout:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(Dashboard.this, MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//makesure user cant go back
                 startActivity(intent);
                 finish();
@@ -237,13 +251,38 @@ public class Dashboard extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static String getUserid() {
-        return userid;
+    public void getusername(String email)
+    {
+        String[] res = {""};
+        if (FirebaseDatabase.getInstance() != null)
+        {
+            FirebaseDatabase.getInstance().goOffline();
+        }
+        FirebaseDatabase.getInstance().goOnline();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users/"+email.replace(".",","));
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                res[0] = dataSnapshot.child("name").getValue().toString();
+
+                Log.d("uname",res[0]);
+                NavigationView navigationView = findViewById(R.id.nvView);
+                View hView =  navigationView.getHeaderView(0);
+                TextView nav_user = (TextView)hView.findViewById(R.id.username);
+                nav_user.setText(res[0]);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        };
+        ref.addListenerForSingleValueEvent(valueEventListener);
+        ref.removeEventListener(valueEventListener);
+
+
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
 
         // [END basic_query_value_listener]
 

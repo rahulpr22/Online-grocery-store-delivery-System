@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,27 +8,116 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-1dp"
-            android:background="#1e3d59"
-            android:contentDescription="@string/banner"
-            app:srcCompat="@drawable/banner" />
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/temp1">
+           <HorizontalScrollView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/black"
+               android:id="@+id/horizontalscroll">
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="40dp"
+                       android:paddingLeft="5dp"
+                       android:paddingRight="5dp"
+                       android:gravity="center"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginTop="5dp"
+                       android:layout_marginBottom="5dp"
+                       android:text="Fruits/Vegetables"
+                       android:textSize="14sp"
+                       android:clickable="true"
+                       android:backgroundTint="@color/black"
+                       android:textColor="@color/white"
+                       android:id="@+id/fruits"
+                       android:background="@drawable/text_bg"
+                       android:fontFamily="@font/amaranth"/>
+                   <TextView
+                       android:layout_width="60dp"
+                       android:layout_height="40dp"
+                       android:gravity="center"
+                       android:layout_marginBottom="5dp"
+                       android:layout_marginTop="5dp"
+                       android:paddingLeft="5dp"
+                       android:paddingRight="5dp"
+                       android:id="@+id/snacks"
+                       android:background="@drawable/text_bg"
+                       android:backgroundTint="@color/black"
+                       android:textColor="@color/white"
+                       android:layout_marginLeft="5dp"
+                       android:text="Snacks"/>
+                   <TextView
+                       android:layout_width="60dp"
+                       android:layout_height="40dp"
+                       android:gravity="center"
+                       android:layout_marginBottom="5dp"
+                       android:layout_marginTop="5dp"
+                       android:paddingLeft="5dp"
+                       android:paddingRight="5dp"
+                       android:id="@+id/meat"
+                       android:background="@drawable/text_bg"
+                       android:backgroundTint="@color/black"
+                       android:textColor="@color/white"
+                       android:layout_marginLeft="5dp"
+                       android:text="Meat"/>
+                   <TextView
+                       android:layout_width="60dp"
+                       android:layout_height="40dp"
+                       android:gravity="center"
+                       android:layout_marginBottom="5dp"
+                       android:layout_marginTop="5dp"
+                       android:paddingLeft="5dp"
+                       android:paddingRight="5dp"
+                       android:id="@+id/dairy"
+                       android:background="@drawable/text_bg"
+                       android:backgroundTint="@color/black"
+                       android:textColor="@color/white"
+                       android:layout_marginLeft="5dp"
+                       android:text="Dairy"/>
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="40dp"
+                       android:gravity="center"
+                       android:layout_marginBottom="5dp"
+                       android:layout_marginTop="5dp"
+                       android:paddingLeft="5dp"
+                       android:paddingRight="5dp"
+                       android:id="@+id/household"
+                       android:background="@drawable/text_bg"
+                       android:backgroundTint="@color/black"
+                       android:textColor="@color/white"
+                       android:layout_marginLeft="5dp"
+                       android:text="Household"/>
+               </LinearLayout>
+
+           </HorizontalScrollView>
+           <ImageView
+               android:id="@+id/banner"
+               android:layout_width="match_parent"
+               android:layout_height="fill_parent"
+               android:background="#1e3d59"
+               android:layout_below="@id/horizontalscroll"
+               android:contentDescription="@string/banner"
+               app:srcCompat="@drawable/banner" />
+       </RelativeLayout>
 
         <ListView
             android:id="@+id/simpleGridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/banner"
+            android:layout_below="@+id/temp1"
             android:layout_marginTop="30dp"
             android:horizontalSpacing="10dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/box"
-            android:numColumns="2"
             android:verticalSpacing="10dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
@@ -36,4 +125,4 @@
             android:dividerHeight="10.0sp"
             />
     </RelativeLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

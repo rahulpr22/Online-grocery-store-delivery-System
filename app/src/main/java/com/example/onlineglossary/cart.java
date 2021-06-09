@@ -48,6 +48,8 @@ public class cart extends AppCompatActivity {
         sorrymsg=findViewById(R.id.cartsorrymsg);
         checkout.setVisibility(View.GONE);
         cartcost.setVisibility(View.GONE);
+        sorrymsg.setVisibility(View.GONE);
+
         Intent prime=new Intent(cart.this,deliverydetails.class);
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
@@ -77,7 +79,6 @@ public class cart extends AppCompatActivity {
                     str.add(temp);
                 }
                 emptycart.setVisibility(View.GONE);
-                sorrymsg.setVisibility(View.GONE);
                 if(list.size()==0)
                 {
                     emptycart.setVisibility(View.VISIBLE);

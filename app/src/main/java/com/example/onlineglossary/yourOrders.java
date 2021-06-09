@@ -39,6 +39,7 @@ public class yourOrders extends AppCompatActivity {
         setContentView(R.layout.activity_your_orders);
         noorders=findViewById(R.id.noorders);
         sorrymsg=findViewById(R.id.sorrymsg);
+        sorrymsg.setVisibility(View.GONE);
 
         String uid= FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
         if (FirebaseDatabase.getInstance() != null)
@@ -61,7 +62,6 @@ public class yourOrders extends AppCompatActivity {
                     list.add(d);
                 }
                 noorders.setVisibility(View.GONE);
-                sorrymsg.setVisibility(View.GONE);
                 if(list.size()==0)
                 {
                     noorders.setVisibility(View.VISIBLE);

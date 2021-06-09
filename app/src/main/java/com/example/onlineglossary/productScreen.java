@@ -104,12 +104,14 @@ public class productScreen extends AppCompatActivity {
                 i.putExtra("uid",uid);
                 i.putExtra("pid",pid);
                 startActivity(i);
+                finish();
             }
         });
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                productScreen.super.onBackPressed();
+                Intent i = new Intent(productScreen.this, Dashboard.class);
+                startActivity(i);
             }
         });
         

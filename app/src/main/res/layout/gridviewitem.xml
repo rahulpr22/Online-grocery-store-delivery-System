@@ -1,10 +1,13 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="41dp"
     android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/box"
     android:layout_centerHorizontal="true">
 
     <ImageView
@@ -23,7 +26,7 @@
         android:id="@+id/prod_title"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/amaranth"
         android:paddingLeft="5dp"
@@ -37,7 +40,7 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_below="@+id/prod_title"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="50dp"
         android:layout_toRightOf="@id/prod_image"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/amaranth"
@@ -48,7 +51,8 @@
 
     <TextView
         android:clickable="true"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
+        android:gravity="center_horizontal"
         android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
         android:paddingBottom="3dp"

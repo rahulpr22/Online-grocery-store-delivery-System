@@ -46,7 +46,7 @@
                 android:layout_toRightOf="@+id/profileImage"
                 android:fontFamily="@font/amita"
                 android:includeFontPadding="true"
-                android:text="Raj"
+                android:text="Name"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -62,7 +62,7 @@
                 android:layout_toRightOf="@+id/profileImage"
                 android:fontFamily="@font/amaranth"
                 android:includeFontPadding="true"
-                android:text="prb@gmail.com"
+                android:text="Email"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -77,7 +77,7 @@
                 android:layout_toRightOf="@+id/profileImage"
                 android:fontFamily="@font/amita"
                 android:includeFontPadding="true"
-                android:text="9878654567"
+                android:text="Phone number"
                 android:id="@+id/phone1"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp"

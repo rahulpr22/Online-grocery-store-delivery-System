@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="#ffb001">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffb001">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tempe1"
+            android:background="#ffb001">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:text="Category"
+                android:id="@+id/catitemhed"
+                android:paddingBottom="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/amaranth"
+                android:textAlignment="center"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"
+                android:textSize="24sp"
+                android:gravity="center_horizontal" />
+            <FrameLayout
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/catitemhed"
+                android:id="@+id/cartlist"
+                android:layout_height="wrap_content"
+                android:layout_weight="9.5">
+
+                <ListView
+                    android:id="@+id/catlistviewcart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:horizontalSpacing="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:verticalSpacing="10dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:divider="#ffb001"
+                    android:dividerHeight="10.0sp"/>
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/tempe1">
+            <ImageView
+                android:backgroundTint="@color/black"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:id="@+id/noitems"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/noorders"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
