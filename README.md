@@ -10,10 +10,10 @@ Product Images are stored in firebase storage and the url of the same is stored 
 
 Application Functionalities
 -------------------------------------
-Online Registration for Customers
-Login System for admin, customers
-Online catalog, Shopping cart and Checkout and Payment option
-Admin Dashboard and Inventory Management
+* Online Registration for Customers
+* Login System for admin, customers
+* Online catalog, Shopping cart and Checkout and Payment option
+* Admin Dashboard and Inventory Management
 
 
 
