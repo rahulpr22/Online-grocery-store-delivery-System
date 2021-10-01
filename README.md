@@ -10,10 +10,12 @@ Product Images are stored in firebase storage and the url of the same is stored 
 
 Application Functionalities
 -------------------------------------
+Online Registration for Customers
+Login System for admin, customers
+Online catalog, Shopping cart and Checkout and Payment option
+Admin Dashboard and Inventory Management
 
-Dashboard or home screen
 
-![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/dashboard.PNG?raw=true "User Registration page")
 
 
 user registration 
@@ -24,6 +26,9 @@ Login page (forgot password via sending reset link to registered email)
 
 ![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/loginpage.PNG?raw=true "Login page")
 
+Dashboard or home screen
+
+![Alt text](https://github.com/rahulpr22/Online-grocery-store-delivery-System/blob/master/screenshots/dashboard.PNG?raw=true "User Registration page")
 
 user can add and remove products from cart 
 
@@ -48,5 +53,3 @@ user can track delivery status of order
 
 
 
-More functionalities include: user can cancel orders, user can reset or update password, Admin user can add user, Admin user can monitor or update order delivery status 
-More images can be found in screenshots folder 
